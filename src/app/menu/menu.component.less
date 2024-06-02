@@ -1,0 +1,69 @@
+/*
+	menu.component.less
+*/
+
+
+.test {
+    display: block;
+}
+
+@media (max-width: 992px) {
+	.nav-desktop {
+	    display: none;
+	}
+  .nav-mobile {
+	    display: block;
+	}
+}
+
+@media (min-width: 992px) {
+	.nav-desktop {
+	    display: block;
+	}
+  .nav-mobile {
+	    display: none;
+	}
+}
+
+h1 {
+  color:#c0c0c0;
+  font-weight:100;
+}
+
+.menu, .bg-dark  {
+  margin: 15px auto;
+  position: fixed;
+  margin: 0 auto;
+  width: 100%;
+  background: url(img/black_denim.png);
+  z-index: 9999;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.navbar-expand-lg .navbar-nav {
+  margin: 0 auto;
+}
+
+.navbar-toggler:not(:disabled):not(.disabled) {
+    box-shadow: none;
+}
+
+.btn, a:not([href]):not([tabindex]), .btn:not(:disabled):not(.disabled).active, .btn:not(:disabled):not(.disabled):active {
+  color:#999;
+  padding:10px 20px;
+  margin: 0 5px;
+  font-size: 0.9rem;
+  text-decoration:none;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.btn:hover, .btn:not(:disabled):not(.disabled).active:hover, .btn:not(:disabled):not(.disabled):active:hover {
+  background:#1e90ff;
+  color:#FFF;
+}
+
+.btn:focus {
+  box-shadow: none;
+}

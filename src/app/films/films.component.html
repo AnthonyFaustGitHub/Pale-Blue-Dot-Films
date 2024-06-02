@@ -1,0 +1,100 @@
+<!-- Filmography -->
+<div id="palebluedotfilms-logo">
+  <img src="assets/pale-blue-dot-films-logo.png" alt="Pale Blue Dot Films"/>
+</div>
+
+<div id="filmography" #container>
+    
+    @for (film of filmography; track film.id) {
+    <div class="container film-wrap">
+
+    <div class="row film-wrapper">
+
+    <div class="row">
+      <p class="film-length">({{ film.type }}) - length: {{ film.lengthInMinutes }} min</p>
+    </div>
+
+      <div class="container film-synopsis text-center">
+
+        <div class="row">
+          <div class="col film-title">
+            <div class="col-12">
+              <h1>{{ film.title }} ({{ film.year }})</h1>
+            </div>
+          </div>
+            
+          <div class="col-12 film-logline">
+            <h3>{{ film.synopsis }}</h3>
+          </div>
+        </div>
+
+      </div>
+
+      @if (film.still) {
+        <img src="assets/{{ film.still }}" alt="Still from {{ film.title }} ({{ film.year }})"/>
+      }
+
+      <div class="film-wrapper-body padding-top-15px">
+
+        <div class="row">
+
+          @if (!film.distribution) {
+            <div class="col-sm-12 col-md-6 film-links">
+              <h3>Distribution</h3>
+              <ul>
+                <li>
+                  <p class="fst-italic">pending</p>
+                </li>
+              </ul>
+            </div>
+          }
+          @else if (film.distribution && film.link) {
+            <div class="col-sm-12 col-md-6 film-links">
+              <h3>Distribution</h3>
+              <ul>
+                <li>
+                  <p><a (click)="openLinkInNewTab(film.link)">{{film.distribution}}</a></p>
+                </li>
+              </ul>
+            </div>
+          }
+          @else if (film.distribution && !film.link) {
+            <div class="col-sm-12 col-md-6 film-links">
+              <h3>Distribution</h3>
+              <ul>
+                <li>
+                  <p>{{film.distribution}}</p>
+                </li>
+              </ul>
+            </div>
+          }
+
+          <div class="col-sm-12 col-md-6 film-links">
+             <h3>Links</h3>
+              @if (film.poster || film.stills) {
+             <ul>
+                 @if (film.poster) {
+               <li>
+                 <a (click)="openLinkInNewTab(film.poster)">Official Movie Poster</a>
+               </li>
+                 }
+                 @if (film.stills) {
+               <li>
+                 <a (click)="openLinkInNewTab(film.stills)">Official Production Stills</a>
+               </li>
+                 }
+             </ul>
+             }
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+}
+
+</div>
